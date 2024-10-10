@@ -1,0 +1,55 @@
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+async_io ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn cuda is not available from torch
+[93m [WARNING] [0m please install triton==1.0.0 if you want to use sparse attention
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/home/u12219/data/zhangxiangyu/torch_env/lib/python3.9/site-packages/torch']
+torch version .................... 1.13.0a0+git4e8ea0e
+deepspeed install path ........... ['/home/u12219/data/zhangxiangyu/torch_env/lib/python3.9/site-packages/deepspeed']
+deepspeed info ................... 0.8.0, unknown, unknown
+torch cuda version ............... None
+/home/u12219/data/zhangxiangyu/torch_env/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:738: UserWarning: For MPI backend, world_size (4) and rank (3) are ignored since they are assigned by the MPI runtime.
+  warnings.warn(
+torch hip version ................ None
+nvcc version ..................... [91m [FAIL] cannot find CUDA_HOME via torch.utils.cpp_extension.CUDA_HOME=None [0m
+deepspeed wheel compiled w. ...... torch 1.13, cuda 0.0
+**** Git info for Megatron: git_hash=74753f9 git_branch=fugaku-llm ****
+WARNING: TensorBoard writing requested but is not available (are you using PyTorch 1.1.0 or later?), no TensorBoard logs will be written.
+[2024-09-30 17:37:44,273] [INFO] [utils.py:31:see_memory_usage] Before Building Model
+[2024-09-30 17:37:44,273] [INFO] [utils.py:41:see_memory_usage] CPU Virtual Memory:  used = 2.2 GB, percent = 6.9%
+time (ms) | load-checkpoint: 4.61
+time (ms) | model-and-optimizer-setup: 21753.91 | train/valid/test-data-iterators-setup: 2749.27
+ iteration        1/  500000 | consumed samples:            4 | consumed tokens:         4096 | elapsed time per iteration (ms): 14391.8 | learning rate: 4.687E-08 | global batch size:     4 | lm loss: 1.102642E+01 | loss scale: 1.0 | grad norm: 27.387 | actual seqlen:  1024 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 0.278 | TFLOPs: 0.22 |
+time (ms) | forward-compute: 5529.82 | backward-compute: 7063.78 | backward-params-all-reduce: 1220.18 | backward-embedding-all-reduce: 0.07 | optimizer: 571.20
+ iteration        2/  500000 | consumed samples:            8 | consumed tokens:         8192 | elapsed time per iteration (ms): 12949.4 | learning rate: 9.375E-08 | global batch size:     4 | lm loss: 1.104248E+01 | loss scale: 1.0 | grad norm: 26.007 | actual seqlen:  1024 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 0.309 | TFLOPs: 0.25 |
+time (ms) | forward-compute: 4106.32 | backward-compute: 7024.53 | backward-params-all-reduce: 1164.05 | backward-embedding-all-reduce: 0.07 | optimizer: 479.79
+ iteration        3/  500000 | consumed samples:           12 | consumed tokens:        12288 | elapsed time per iteration (ms): 12350.9 | learning rate: 1.406E-07 | global batch size:     4 | lm loss: 1.102686E+01 | loss scale: 1.0 | grad norm: 26.149 | actual seqlen:  1024 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 0.324 | TFLOPs: 0.26 |
+time (ms) | forward-compute: 4021.91 | backward-compute: 6698.44 | backward-params-all-reduce: 1163.20 | backward-embedding-all-reduce: 0.07 | optimizer: 460.94
+ iteration        4/  500000 | consumed samples:           16 | consumed tokens:        16384 | elapsed time per iteration (ms): 12312.7 | learning rate: 1.875E-07 | global batch size:     4 | lm loss: 1.101042E+01 | loss scale: 1.0 | grad norm: 29.125 | actual seqlen:  1024 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 0.325 | TFLOPs: 0.26 |
+time (ms) | forward-compute: 4015.02 | backward-compute: 6227.36 | backward-params-all-reduce: 1582.16 | backward-embedding-all-reduce: 0.07 | optimizer: 481.83
+ iteration        5/  500000 | consumed samples:           20 | consumed tokens:        20480 | elapsed time per iteration (ms): 12296.6 | learning rate: 2.344E-07 | global batch size:     4 | lm loss: 1.098259E+01 | loss scale: 1.0 | grad norm: 25.218 | actual seqlen:  1024 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 0.325 | TFLOPs: 0.26 |
+time (ms) | forward-compute: 4280.01 | backward-compute: 6338.14 | backward-params-all-reduce: 1208.55 | backward-embedding-all-reduce: 0.07 | optimizer: 463.51
